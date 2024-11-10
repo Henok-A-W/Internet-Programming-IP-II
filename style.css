@@ -1,42 +1,60 @@
-* body {
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body Styles */
+body {
     font-family: Arial, sans-serif;
-    background-color: #b55959;
+    background-color: #124b8d; /* Fallback color */
+    background-image: url('your-background-image-url.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation for the body */
 }
 
-.form-group {
-    display:flex ;
-    align-items: center;
-    margin-bottom: 10px;
-
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-label{
-    margin-right: 10px;
-
-}
-
-
+/* Container Styles */
 .container {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 400px;
 }
 
-#form{
-    margin-right: 600px;
-}
 h2 {
     text-align: center;
-    margin-bottom: 500px;
+    margin-bottom: 20px; /* Adjusted from 500px to 20px for better spacing */
 }
 
+/* Form Group Styles */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+/* Input Styles */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -47,8 +65,17 @@ select {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+    transition: border-color 0.3s; /* Smooth border color transition */
 }
 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    outline: none;
+}
+
+/* Submit Button Styles */
 input[type="submit"] {
     background-color: #4CAF50;
     color: white;
@@ -56,19 +83,28 @@ input[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Button color and scale transition */
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Darker button color on hover */
 }
 
-
-
+/* Error Message Styles */
 .error {
     color: red;
     font-size: 12px;
     margin-bottom: 10px;
 }
 
+/* Media Queries */
+@media (max-width: 4s80px) {
+    .container {
+        padding: 15px;
+        width: 90%; /* Responsive width */
+    }
 
-       
+    h2 {
+        font-size: 1.5em;
+    }
+}
