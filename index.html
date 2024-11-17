@@ -1,102 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="row col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading text-center">
-                    <h1>Registration Form</h1>
-                </div>
-                <div class="panel-body">
-                    <!-- Registration Form -->
-                    <form action="connect.php" method="post">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <div>
-                                <label for="male" class="radio-inline">
-                                    <input type="radio" name="gender" value="m" id="male" required> Male
-                                </label>
-                                <label for="female" class="radio-inline">
-                                    <input type="radio" name="gender" value="f" id="female" required> Female
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="number">Phone Number</label>
-                            <input type="tel" class="form-control" id="number" name="number" required>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Register">
-                    </form>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>File Management Page</title>  
+    <link rel="stylesheet" href="index.css">  
+</head>  
+<body>  
+    <nav>  
+        <h2>File Management System</h2>  
+        <button class="sign-out" onclick="signOut()">Sign Out</button>  
+    </nav>  
 
-                    <!-- File Upload Form -->
-                    <h2>Upload a File</h2>
-                    <form action="connect.php" method="post" enctype="multipart/form-data">
-                        <input type="file" name="fileToUpload" required>
-                        <input type="submit" class="btn btn-secondary" value="Upload File">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container">  
+        <div class="row col-md-6 col-md-offset-3">  
+            <div class="panel panel-primary">  
+                <div class="panel-heading text-center">  
+                    <h1>File Management</h1>  
+                </div>  
+                <div class="panel-body">  
 
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-body">
-          <!--  Hello, world! This is a toast message.-->
-        </div>
-    </div>
-    
+                    <!-- Upload File Form -->  
+                    <h1>Upload File</h1>  
+                    <form action="upload.php" method="post" enctype="multipart/form-data">  
+                        <label for="file_upload">Select a file to upload:</label>  
+                        <input type="file" id="file_upload" name="file_upload" required>  
+                        <br>  
+                        <input type="submit" value="Upload File">  
+                    </form>  
+                    <br>  
 
-    <!-- File read Form -->
-    
-    <h1>File Read</h1>
+                    <!-- File Read Form -->  
+                    <h1>File Read</h1>  
+                    <form action="read.php" method="post">  
+                        <label for="file_to_read">Enter the filename to read:</label>  
+                        <input type="text" id="file_to_read" name="file_to_read" required>  
+                        <br>  
+                        <input type="submit" value="Read File">  
+                    </form>  
+                    <br>  
 
-    <form action="read.php" method="post">
-      <label for="file_to_read">Enter the filename to read:</label>
-      <input type="text" id="file_to_read" name="file_to_read" required>
-      <br>
-      <input type="submit" value="Read File">
-    </form>
-    <!-- File write Form -->
-    
-    <h1>File write</h1>
+                    <!-- File Write Form -->  
+                    <h1>File Write</h1>  
+                    <form action="write.php" method="post">  
+                        <label for="file_to_write">Enter the filename to write:</label>  
+                        <input type="text" id="file_to_write" name="file_to_write" required>  
+                        <br>  
+                        <input type="submit" value="Write File">  
+                    </form>  
+                    <br>  
 
-    <form action="write.php" method="post">
-      <label for="file_to_write">Enter the filename to write:</label>
-      <input type="text" id="file_to_write" name="file_to_write" required>
-      <br>
-      <input type="submit" value="Write File">
-    </form>
-    <!-- File Delete Form -->
-    
-    <h1>File Delete</h1>
+                    <!-- File Delete Form -->  
+                    <h1>File Delete</h1>  
+                    <form action="delete.php" method="post">  
+                        <label for="file_to_delete">Enter the filename to delete:</label>  
+                        <input type="text" id="file_to_delete" name="file_to_delete" required>  
+                        <br>  
+                        <input type="submit" value="Delete File">  
+                    </form>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
 
-    <form action="delete.php" method="post">
-      <label for="file_to_delete">Enter the filename to delete:</label>
-      <input type="text" id="file_to_delete" name="file_to_delete" required>
-      <br>
-      <input type="submit" value="Delete File">
-    </form>
-</body>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">  
+        <div class="toast-body">  
+          <!-- Hello, world! This is a toast message.-->  
+        </div>  
+    </div>  
+
+    <script>  
+      function signOut() {  
+          // Redirect to the sign-out URL or perform sign-out operations here  
+          window.location.href = 'login.html'; 
+          // window.location.href='logout.php'; // Uncomment this to redirect to a logout page if you have one  
+      }  
+    </script>  
+</body>  
 </html>
