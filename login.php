@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 <div class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data">
-      <h3>login now</h3>
+      <h3>login now:</h3>
       <?php
       if(isset($message)){
          foreach($message as $message){
