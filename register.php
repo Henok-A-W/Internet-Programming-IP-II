@@ -4,11 +4,11 @@ include 'config.php';
 
 if(isset($_POST['submit'])){
 
-   
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
+   $college = mysqli_real_escape_string($conn, $_POST['college']);
    $department = mysqli_real_escape_string($conn, $_POST['department']);
    $image = $_FILES['image']['name'];
    $image_size = $_FILES['image']['size'];
@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
       }elseif($image_size > 2000000){
          $message[] = 'image size is too large!';
       }else{
-         $insert = mysqli_query($conn, "INSERT INTO `user_form`(name, email, password, department, image) VALUES('$name', '$email', '$pass', '$department', '$image')") or die('query failed');
+         $insert = mysqli_query($conn, "INSERT INTO `user_form`(name, email, password, college, department, image) VALUES('$name', '$email', '$pass', '$college', '$department', '$image')") or die('query failed');
 
          if($insert){
             move_uploaded_file($image_tmp_name, $image_folder);
@@ -70,6 +70,7 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" placeholder="enter email" class="box" required>
       <input type="password" name="password" placeholder="enter password" class="box" required>
       <input type="password" name="cpassword" placeholder="confirm password" class="box" required>
+      <input type="text" name="college" placeholder="enter college" class="box" required>
       <input type="text" name="department" placeholder="enter department" class="box" required>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
       <input type="submit" name="submit" value="register now" class="btn">
